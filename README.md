@@ -1,33 +1,33 @@
 # @idealinsane/opencode-router-track
 
-OpenRouter Free Models Router가 반환하는 모델 정보를 읽어 OpenCode TUI 사이드바에 표시하기 위한 실험적인 플러그인입니다.
+An experimental OpenCode plugin that reads model metadata returned by OpenRouter Free Models Router and displays it in the OpenCode terminal user interface (TUI) sidebar.
 
-## 설치
+## Installation
 
-npmjs.org 공개 배포 후 다음 명령으로 설치할 수 있습니다. GitHub PAT는 필요하지 않습니다.
+Install the public package from npmjs.org. No npm login or GitHub personal access token (PAT) is required.
 
 ```sh
 npm install @idealinsane/opencode-router-track
 ```
 
-GitHub Packages(`npm.pkg.github.com`)에 있는 동명 패키지는 별도 레지스트리이며, 설치 시 GitHub 인증이 필요합니다. 이 저장소의 기본 배포 대상은 npmjs.org입니다.
+The package with the same name on GitHub Packages (`npm.pkg.github.com`) is hosted on a separate registry and requires GitHub authentication to install. This repository publishes to npmjs.org by default.
 
-## 동작
+## How it works
 
-- 서버 진입점: `dist/index.js` (기본 export). `http.response` 훅에서 무료 모델 요청의 SSE 또는 JSON 응답에 포함된 모델 정보를 읽습니다.
-- TUI 진입점: `dist/tui.jsx` (기본 export). 사이드바의 `Free Models Router` 영역에 마지막으로 수집한 모델 정보를 표시합니다.
-- 로컬 상태: `$HOME/.local/share/opencode/plugins/opencode-router-track/resolved.json`.
+- **Server entry point:** `dist/index.js` (default export). Uses the `http.response` hook to read model metadata from server-sent events (SSE) or JSON responses to free-model requests.
+- **TUI entry point:** `dist/tui.jsx` (default export). Displays the most recently collected model information in the sidebar's `Free Models Router` section.
+- **Local state:** `$HOME/.local/share/opencode/plugins/opencode-router-track/resolved.json`.
 
-서버 및 TUI 진입점은 사용하는 OpenCode 버전의 플러그인 로더에 각각 등록해야 합니다. 단순히 npm으로 설치하는 것만으로 활성화되지는 않습니다.
+Register the server and TUI entry points separately with the plugin loader supported by your OpenCode version. Installing the npm package alone does not activate the plugin.
 
-## 호환성과 제한
+## Compatibility and limitations
 
-- 개발 의존성은 `@opencode/plugin@2.1.2`입니다. V2 플러그인 API를 사용하며, 다른 버전에서의 동작을 보장하지 않습니다.
-- 응답에 모델 정보가 없으면 선택된 모델을 알아낼 수 없습니다. 표시값은 응답 또는 메시지 메타데이터에서 읽은 값이며, 별도로 검증한 제공자 정보가 아닙니다.
-- 상태 파일은 세션별로 분리되지 않습니다. 여러 세션에서는 이전 요청의 값이 표시될 수 있습니다.
-- 빌드 검증과 실제 OpenCode에서의 실행 검증은 별개입니다. 이 저장소에는 아직 자동화된 OpenCode 통합 테스트가 없습니다.
+- The development dependency is `@opencode/plugin@2.1.2`. The plugin uses the V2 plugin API; compatibility with other versions is not guaranteed.
+- If a response contains no model metadata, the plugin cannot determine the selected model. Displayed values come from response or message metadata and are not independently verified provider information.
+- The state file is shared across sessions. When multiple sessions are active, the sidebar may show a value from an earlier request or another session.
+- A successful build is not proof of correct behavior inside OpenCode. This repository does not yet include automated OpenCode integration tests.
 
-## 소스에서 빌드
+## Build from source
 
 ```sh
 git clone https://github.com/idealinsane/opencode-router-track.git
@@ -37,8 +37,8 @@ npm run build
 npm pack --dry-run
 ```
 
-산출물은 `dist/`에 생성됩니다. 저장소에는 빌드 산출물을 커밋하지 않습니다.
+Build output is written to `dist/`. Generated build files are not committed to the repository.
 
-## 라이선스
+## License
 
-MIT (`package.json`의 라이선스 선언).
+MIT, as declared in `package.json`.
