@@ -1,7 +1,7 @@
 {
   "name": "@idealinsane/opencode-router-track",
   "version": "1.0.2",
-  "description": "Experimental OpenCode TUI plugin for displaying model metadata returned by OpenRouter Free Models Router",
+  "description": "Experimental OpenCode TUI plugin for displaying the model selected by OpenRouter routers (Free Models Router and Auto Router)",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,6 +20,7 @@
     "plugin",
     "openrouter",
     "free-models",
+    "auto-router",
     "router"
   ],
   "author": "",

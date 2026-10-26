@@ -27,7 +27,8 @@ const routerPlugin = Plugin.define({
       const m = ui.model.current()
       const modelID = typeof m?.modelID === "string" ? m.modelID : (m?.model ?? "")
       const providerID = typeof m?.providerID === "string" ? m.providerID : (m?.provider ?? "")
-      return modelID === "openrouter/free" || (providerID === "openrouter" && modelID.endsWith(":free"))
+      return modelID === "openrouter/free" || modelID === "openrouter/auto" || modelID === "openrouter/auto-beta" ||
+        (providerID === "openrouter" && modelID.endsWith(":free"))
     }
 
     function readLastMessageInfo(): string | null {
@@ -77,7 +78,7 @@ const routerPlugin = Plugin.define({
         const detail = model ? `• ${model}` : "• selecting…"
         return (
           <box style={containerStyle}>
-            <text style={{ fontWeight: "bold" as const, fontFamily, fontSize: "12px", color: context.theme.text.highlight, margin: 0 }}>Free Models Router</text>
+            <text style={{ fontWeight: "bold" as const, fontFamily, fontSize: "12px", color: context.theme.text.highlight, margin: 0 }}>OpenRouter Router</text>
             <text style={{ fontFamily, fontSize: "12px", color: context.theme.text.secondary, margin: 0 }}>{detail}</text>
           </box>
         )

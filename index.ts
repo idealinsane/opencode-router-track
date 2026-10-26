@@ -15,8 +15,10 @@ export default {
       const { providerID, model, response } = event
       const reqModelId = model?.id ?? model?.modelID ?? ""
 
-      // Match openrouter/free or any :free variant (providerID may be undefined)
-      if (!(reqModelId === "openrouter/free" || reqModelId === "openrouter/openrouter/free" || reqModelId.endsWith(":free"))) return
+      // Match OpenRouter routers: free (openrouter/free, :free variants) and auto (openrouter/auto, auto-beta)
+      const isFreeRouter = reqModelId === "openrouter/free" || reqModelId === "openrouter/openrouter/free" || reqModelId.endsWith(":free")
+      const isAutoRouter = reqModelId === "openrouter/auto" || reqModelId === "openrouter/auto-beta"
+      if (!(isFreeRouter || isAutoRouter)) return
 
       void (async () => {
         try {
