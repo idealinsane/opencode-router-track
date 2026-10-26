@@ -1,6 +1,6 @@
 {
-  "name": "opencode-router-track",
-  "version": "1.0.0",
+  "name": "@idealinsane/opencode-router-track",
+  "version": "1.0.1",
   "description": "OpenRouter Free Models Router가 선택한 모델을 OpenCode TUI 사이드바에 표시",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -26,11 +26,20 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ideal/opencode-router-track.git"
+    "url": "git+https://github.com/idealinsane/opencode-router-track.git"
   },
   "devDependencies": {
     "@opencode/plugin": "^2.1.2",
     "@types/node": "^26.6.5",
     "typescript": "^7.0.2"
+  },
+  "type": "module",
+  "homepage": "https://github.com/idealinsane/opencode-router-track#readme",
+  "bugs": {
+    "url": "https://github.com/idealinsane/opencode-router-track/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

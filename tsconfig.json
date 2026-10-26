@@ -3,17 +3,24 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "declaration": false,
+    "declaration": true,
     "sourceMap": true,
     "outDir": "./dist",
     "strict": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "isolatedModules": true,
-    "types": ["node"],
-    "lib": ["ES2022"],
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "ES2022"
+    ],
     "jsx": "preserve",
-    "noEmitOnError": false
+    "noEmitOnError": true
   },
-  "include": ["index.ts", "tui.tsx"]
+  "include": [
+    "index.ts",
+    "tui.tsx"
+  ]
 }
